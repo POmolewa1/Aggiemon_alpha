@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clcn0qdjuktys"
+path="res://.godot/imported/Jorge Hernandez - Chopsticks NO COPYRIGHT 8-bit Music.mp3-d8d38a30f071f8e7af5fb159b3dc9996.mp3str"
+
+[deps]
+
+source_file="res://Audio/Jorge Hernandez - Chopsticks NO COPYRIGHT 8-bit Music.mp3"
+dest_files=["res://.godot/imported/Jorge Hernandez - Chopsticks NO COPYRIGHT 8-bit Music.mp3-d8d38a30f071f8e7af5fb159b3dc9996.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,384 @@
+[gd_scene load_steps=27 format=3 uid="uid://chj1gkeq6mwit"]
+
+[ext_resource type="Script" uid="uid://dwkyyfuopel3u" path="res://Scripts/battle_set_up.gd" id="1_6io4i"]
+[ext_resource type="Script" uid="uid://1j5owlrrbul0" path="res://Scripts/battle_manager.gd" id="2_1n6mm"]
+[ext_resource type="Texture2D" uid="uid://jq3i2xdilphx" path="res://Assets/battle_screens/AI_example_for_testing.png" id="2_ke72n"]
+[ext_resource type="AudioStream" uid="uid://d4mhw72mnblfs" path="res://Audio/8 Bit Boss - Boss Battle Music By HeatleyBros.mp3" id="4_28bop"]
+[ext_resource type="Texture2D" uid="uid://daaaqho37l7la" path="res://UI/pixil-frame-0 (5).png" id="4_bp2fu"]
+[ext_resource type="Texture2D" uid="uid://bkli626nl0m82" path="res://UI/pixil-frame-0 (7).png" id="4_k502n"]
+[ext_resource type="Texture2D" uid="uid://d1u12qgr5l4xt" path="res://UI/Custom Border and Panels Menu All Part/base_atlas_texture.tres" id="5_7s5lv"]
+[ext_resource type="Script" uid="uid://bfsrad2kx3fe2" path="res://Scripts/health_bar.gd" id="5_jslu5"]
+[ext_resource type="Texture2D" uid="uid://dsu17fhyk5yp7" path="res://UI/pixil-frame-0 (10).png" id="5_vji8u"]
+[ext_resource type="AudioStream" uid="uid://ugkpm4f6vei3" path="res://Audio/whack02-87839.mp3" id="6_28bop"]
+[ext_resource type="Texture2D" uid="uid://7rywqwbl42xu" path="res://Assets/battle_UI_elements/pixil-frame-0 (3).png" id="6_cxfkl"]
+[ext_resource type="Texture2D" uid="uid://dhi64qwp7tell" path="res://UI/pixil-frame-0 (9).png" id="6_nx1dv"]
+[ext_resource type="AudioStream" uid="uid://7f7w2wj4ew17" path="res://Audio/Epic Battle Music (No Copyright) Dragon Castle by @Makai-symphony.mp3" id="7_5l2uv"]
+[ext_resource type="Texture2D" uid="uid://baytgqdajq88n" path="res://UI/pixil-frame-0 (11).png" id="7_g87o7"]
+[ext_resource type="FontFile" uid="uid://ci7nxp58uafet" path="res://UI/PressStart2P.ttf" id="7_k502n"]
+[ext_resource type="AudioStream" uid="uid://csf3p5gkln2a6" path="res://Audio/Pokemon (A Button) - Sound Effect (HD).mp3" id="16_nx1dv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx1dv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuxaa"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjlxq"]
+bg_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uiajs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v15af"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orr02"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uiajs"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.23200001)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guxe6"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gbiu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vaw6"]
+
+[node name="BattleSetUp" type="Node2D" node_paths=PackedStringArray("default_music", "boss_theme")]
+z_index = 100
+script = ExtResource("1_6io4i")
+default_music = NodePath("AudioStreamPlayer")
+boss_theme = NodePath("BossTheme")
+
+[node name="BattleManager" type="Node2D" parent="." node_paths=PackedStringArray("battle_set_up", "command_container", "attack_button", "back1_button", "back2_button", "stat_button", "enemy_list_container", "skill_list_container", "dialogue_box", "player_stat_box", "text", "stat_text", "attack_sound")]
+script = ExtResource("2_1n6mm")
+battle_set_up = NodePath("..")
+command_container = NodePath("../CommandContainer")
+attack_button = NodePath("../CommandContainer/Attack")
+back1_button = NodePath("../SkillListContainer/Back1")
+back2_button = NodePath("../EnemyListContainer/Back2")
+stat_button = NodePath("../CommandContainer/Stats")
+enemy_list_container = NodePath("../EnemyListContainer")
+skill_list_container = NodePath("../SkillListContainer")
+dialogue_box = NodePath("../DialogueBox")
+player_stat_box = NodePath("../PlayerStats")
+text = NodePath("../DialogueBox/Text")
+stat_text = NodePath("../PlayerStats/StatText")
+attack_sound = NodePath("../AttackSound")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -9.0
+offset_top = -54.99997
+offset_right = 1527.0
+offset_bottom = 969.0
+scale = Vector2(0.76133317, 0.7480998)
+size_flags_horizontal = 2
+size_flags_vertical = 8
+texture = ExtResource("2_ke72n")
+
+[node name="CommandContainer" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 742.0
+offset_top = 432.0
+offset_right = 1026.3486
+offset_bottom = 646.4308
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="Attack" type="Button" parent="CommandContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0035191544, 0.0035191746, 0.0035191574, 1)
+theme_override_colors/font_outline_color = Color(0.7957581, 0.53359944, 0.21647075, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("7_k502n")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nx1dv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
+text = "Attack
+"
+
+[node name="TextureRect" type="TextureRect" parent="CommandContainer/Attack"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_vji8u")
+expand_mode = 1
+
+[node name="Stats" type="Button" parent="CommandContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.8817659, 0.6222052, 0.33991536, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("7_k502n")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v15af")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
+text = "Stats"
+
+[node name="TextureRect" type="TextureRect" parent="CommandContainer/Stats"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_nx1dv")
+expand_mode = 1
+
+[node name="Run" type="Button" parent="CommandContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.8392157, 0.5647059, 0.15686275, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("7_k502n")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_orr02")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
+text = "Run
+"
+
+[node name="TextureRect" type="TextureRect" parent="CommandContainer/Run"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_g87o7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 498.0
+offset_top = -1.0
+offset_right = 656.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_uiajs")
+text = "\"Enemy Name\"
+|-----Health-----|
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 7.0
+offset_top = 403.0
+offset_right = 673.0
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_guxe6")
+text = "\"Player\"| Lv.????
+|----------Exp.-------------------|	                         |	-----------------------------|
+--------------------------------------	                         |										
+|-----Health-------------------|			                           |  Character Portrait	|
+                                                                           |										
+|------Mana or whatever-|	                         |------------------------------|
+"
+
+[node name="SkillListContainer" type="TextureRect" parent="."]
+visible = false
+offset_left = 23.0
+offset_top = 407.0
+offset_right = 734.0
+offset_bottom = 619.0
+
+[node name="SkillList" type="GridContainer" parent="SkillListContainer"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 17.0
+offset_right = 675.0
+offset_bottom = 222.0
+theme_override_constants/h_separation = 135
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="Back1" type="Button" parent="SkillListContainer"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 168.0
+offset_right = 683.513
+offset_bottom = 200.357
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.89411765, 0.73333335, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("7_k502n")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3gbiu")
+text = "Back
+"
+
+[node name="TextureRect" type="TextureRect" parent="SkillListContainer/Back1"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_k502n")
+expand_mode = 1
+
+[node name="EnemyListContainer" type="TextureRect" parent="."]
+visible = false
+offset_left = 23.0
+offset_top = 407.0
+offset_right = 734.0
+offset_bottom = 619.0
+
+[node name="EnemyList" type="HBoxContainer" parent="EnemyListContainer"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 23.0
+offset_right = 575.0
+offset_bottom = 67.0
+theme_override_constants/separation = 70
+
+[node name="Back2" type="Button" parent="EnemyListContainer"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 177.0
+offset_right = 711.513
+offset_bottom = 209.357
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_k502n")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8vaw6")
+text = "Back
+"
+
+[node name="TextureRect" type="TextureRect" parent="EnemyListContainer/Back2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_k502n")
+expand_mode = 1
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+visible = false
+offset_left = 23.0
+offset_top = 407.0
+offset_right = 1067.0
+offset_bottom = 551.0
+texture = ExtResource("4_bp2fu")
+expand_mode = 1
+
+[node name="Text" type="Label" parent="DialogueBox"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1042.0
+offset_bottom = 124.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_k502n")
+theme_override_font_sizes/font_size = 16
+text = "Enemy used (skill) and did (num) damage "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_28bop")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="PlayerStats" type="TextureRect" parent="."]
+visible = false
+z_index = 2
+offset_left = 724.0
+offset_top = 93.0
+offset_right = 1039.5599
+offset_bottom = 415.08005
+texture = ExtResource("5_7s5lv")
+
+[node name="StatText" type="Label" parent="PlayerStats"]
+layout_mode = 0
+offset_left = -6.81
+offset_top = 41.15
+offset_right = 305.19
+offset_bottom = 402.15
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 21
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_k502n")
+theme_override_font_sizes/font_size = 22
+text = "Attack: 100
+Attack: 100
+Attack: 100
+Attack: 100
+Attack: 100
+
+"
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("label")]
+offset_left = 744.99994
+offset_top = 346.0
+offset_right = 824.99994
+offset_bottom = 365.0
+scale = Vector2(3.44, 2.7888725)
+value = 100.0
+show_percentage = false
+script = ExtResource("5_jslu5")
+label = NodePath("Label")
+
+[node name="TextureRect" type="TextureRect" parent="HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.7790484
+offset_top = -13.98414
+offset_right = 2.3255844
+offset_bottom = 14.346817
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_cxfkl")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 81.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.7137255, 0, 1)
+theme_override_constants/outline_size = 2
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_28bop")
+
+[node name="BossTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5l2uv")
+volume_db = -5.0
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_nx1dv")
+pitch_scale = 1.35

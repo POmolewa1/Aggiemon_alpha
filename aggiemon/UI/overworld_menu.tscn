@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://27svtqjb0qhq"]
+
+[ext_resource type="Script" uid="uid://c0tdju2epykls" path="res://UI/pause_menu.gd" id="1_n5cd6"]
+[ext_resource type="Theme" uid="uid://djkietrpesysc" path="res://UI/overworld_menu_theme.tres" id="2_w06ic"]
+[ext_resource type="AudioStream" uid="uid://bqcl8xl1dhqng" path="res://Audio/Pokemon exclamation mark sound effect.mp3" id="3_tb71c"]
+[ext_resource type="AudioStream" uid="uid://csf3p5gkln2a6" path="res://Audio/Pokemon (A Button) - Sound Effect (HD).mp3" id="4_vnrry"]
+
+[node name="Overworld Menu" type="PanelContainer" node_paths=PackedStringArray("default_button")]
+custom_minimum_size = Vector2(230, 160)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -258.0
+offset_bottom = 286.0
+grow_horizontal = 0
+theme = ExtResource("2_w06ic")
+script = ExtResource("1_n5cd6")
+default_button = NodePath("MarginContainer/VBoxContainer/StatsButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 46
+theme_override_constants/margin_right = 21
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="StatsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 4
+text = "Stats"
+
+[node name="SkillsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+text = "Skills
+
+"
+
+[node name="MapButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Map
+"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Options
+"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press Shift to
+exit menu"
+horizontal_alignment = 1
+
+[node name="OpenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tb71c")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="CursorSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vnrry")
+volume_db = -2.275
+bus = &"SFX"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StatsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SkillsButton" to="." method="_on_skills_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

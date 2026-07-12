@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://ku33wbk4ro4u"]
+
+[ext_resource type="FontFile" uid="uid://ci7nxp58uafet" path="res://UI/PressStart2P.ttf" id="1_lb7kf"]
+[ext_resource type="Script" path="res://Scripts/enemy_button.gd" id="1_m5twi"]
+[ext_resource type="Texture2D" uid="uid://d1u12qgr5l4xt" path="res://UI/Custom Border and Panels Menu All Part/base_atlas_texture.tres" id="2_suwpb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5twi"]
+bg_color = Color(0.6, 0.6, 0.6, 0.9098039)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3102"]
+bg_color = Color(0.6, 0.6, 0.6, 0.9098039)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5twi"]
+
+[node name="EnemyButton" type="Button"]
+offset_left = 20.0
+offset_top = 23.0
+offset_right = 107.0
+offset_bottom = 67.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lb7kf")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m5twi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p3102")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m5twi")
+text = "DEFUALT
+"
+expand_icon = true
+script = ExtResource("1_m5twi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -13.0
+offset_right = 23.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_suwpb")
+expand_mode = 1

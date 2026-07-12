@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctb4vis60pgh7"]
+
+[ext_resource type="Script" uid="uid://cpjnvj3kvftir" path="res://UI/stats_menu.gd" id="1_ygp7r"]
+[ext_resource type="Theme" uid="uid://djkietrpesysc" path="res://UI/overworld_menu_theme.tres" id="2_neu0m"]
+[ext_resource type="Texture2D" uid="uid://bksmvw3tv6xnh" path="res://Assets/sprites/NewAtlasSprite.tres" id="3_neu0m"]
+
+[node name="StatsMenu" type="Control" node_paths=PackedStringArray("character_sprite", "stats_label", "portrait")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygp7r")
+character_sprite = NodePath("Sprite2D")
+stats_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer/StatsLabel")
+portrait = NodePath("PanelContainer/HBoxContainer/Sprite")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -421.0
+offset_bottom = 182.0
+grow_horizontal = 0
+theme = ExtResource("2_neu0m")
+
+[node name="HBoxContainer" type="Control" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="Control" parent="PanelContainer/HBoxContainer"]
+anchors_preset = 0
+offset_left = 49.0
+offset_top = 21.0
+offset_right = 151.0
+offset_bottom = 155.0
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 17.0
+text = "Stats:"
+
+[node name="StatsLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 102.0
+offset_bottom = 80.0
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/StatsLabel"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = 141.0
+offset_right = 370.0
+offset_bottom = 186.0
+text = "Press Shift to
+exit menu"
+horizontal_alignment = 1
+
+[node name="Sprite" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 9.0
+offset_right = 358.0
+offset_bottom = 126.0
+expand_mode = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-694, 339)
+scale = Vector2(1, 1.027)
+texture = ExtResource("3_neu0m")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(64.944, 30.23, 25.161, 27.053)

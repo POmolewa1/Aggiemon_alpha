@@ -1,0 +1,234 @@
+[gd_scene load_steps=15 format=3 uid="uid://dtrcgvihhd73g"]
+
+[ext_resource type="Script" uid="uid://dtewol7ujqp57" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://boh216q70pv8d" path="res://Assets/sprites/sprites_sample.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://bnnb7ea1fmk6p" path="res://Assets/sprites/side_back_walking_spritesheet.png" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://dw0tk44cm8g5i" path="res://Assets/sprites/idle_spritesheet.png" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://dc8ahwwgtb4qh" path="res://Assets/sprites/Forward_spritesheet.png" id="5_x3wgy"]
+
+[sub_resource type="Animation" id="Animation_v0iea"]
+resource_name = "Idle"
+length = 3.0
+loop_mode = 2
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Student:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(-5.75, -4.838623, 276.1819, 307.2523), Rect2(295.25, -4.839, 276.182, 307.252), Rect2(594.25, -4.839, 276.182, 307.252), Rect2(897.25, -4.839, 276.182, 307.252), Rect2(1198.25, -4.839, 276.182, 307.252), Rect2(1499.25, -4.839, 276.182, 307.252), Rect2(19.795, 299.075, 267.111, 306.8), Rect2(320.795, 299.075, 245.111, 303.8), Rect2(621.795, 299.075, 245.111, 303.8), Rect2(917.795, 299.075, 245.111, 303.8), Rect2(1218.795, 299.075, 245.111, 303.8), Rect2(1506.795, 299.075, 245.111, 303.8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Student:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_fkybt")]
+}
+
+[sub_resource type="Animation" id="Animation_cvnsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Student:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(-5.75, -4.838623, 276.1819, 307.2523)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Student:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_6t5aa")]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "Walk_Up"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Student:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(78, 319, 132, 272), Rect2(387, 319, 112, 272), Rect2(686, 319, 112, 272), Rect2(985, 319, 112, 272), Rect2(1274, 318, 132, 272), Rect2(1583, 317, 112, 272), Rect2(1882, 318, 113, 272), Rect2(2181, 319, 112, 272)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Student:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_6t5aa")]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "Walk_X"
+length = 2.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Student:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(95, 7, 140, 272), Rect2(402, 17, 131, 262), Rect2(703, 7, 131, 272), Rect2(993, 8, 140, 263), Rect2(1285, 18, 150, 253), Rect2(1517, 3, 140, 272), Rect2(1824, 13, 131, 262), Rect2(2125, 3, 131, 272), Rect2(2415, 4, 140, 263), Rect2(2707, 14, 150, 253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Student:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_6t5aa")]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "Walk_down"
+length = 3.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Student:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(74, 9, 150, 272), Rect2(391, 18, 122, 263), Rect2(689, 18, 122, 263), Rect2(990, 19, 122, 263), Rect2(1273, 10, 150, 272), Rect2(1590, 19, 122, 263), Rect2(1890, 20, 122, 263), Rect2(2189, 12, 122, 272), Rect2(2465, 12, 150, 272), Rect2(2782, 24, 122, 263), Rect2(94, 318, 122, 263), Rect2(394, 317, 122, 263), Rect2(675, 306, 150, 272), Rect2(994, 317, 122, 263), Rect2(1296, 317, 122, 263)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Student:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_x3wgy")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t5aa"]
+_data = {
+&"Idle": SubResource("Animation_v0iea"),
+&"RESET": SubResource("Animation_cvnsp"),
+&"Walk_Up": SubResource("Animation_vgqql"),
+&"Walk_X": SubResource("Animation_6t5aa"),
+&"Walk_down": SubResource("Animation_fkybt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(25.875, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(55, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
+size = Vector2(49, 63.625)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "level_label")]
+script = ExtResource("1_cvnsp")
+animation_player = NodePath("AnimationPlayer")
+level_label = NodePath("Label")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(3, 3.081)
+texture = ExtResource("1_v0iea")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0.94400024, 126.229996, 25.161, 27.053)
+
+[node name="Student" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_6t5aa")
+region_enabled = true
+region_rect = Rect2(-5.75, -4.838623, 276.1819, 307.2523)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6t5aa")
+}
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_vgqql")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-0.5, 18.5)
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="SpeakBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeakBox"]
+position = Vector2(-0.8124993, 19.5)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_6t5aa")
+
+[node name="SpeakBox2" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeakBox2"]
+position = Vector2(-0.8124993, 19.5)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_6t5aa")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -35.0
+offset_top = -79.0
+offset_right = 49.0
+offset_bottom = -56.0
+text = "Leveled Up!"

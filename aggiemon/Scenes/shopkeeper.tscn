@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=3 uid="uid://v1u63p3f7k53"]
+
+[ext_resource type="Script" uid="uid://wswhelwiras6" path="res://Scripts/narrator.gd" id="1_1e8i3"]
+[ext_resource type="Texture2D" uid="uid://b7s6may4tnmbq" path="res://Assets/sprites/merchant.png" id="2_1e8i3"]
+
+[sub_resource type="Animation" id="Animation_v0iea"]
+resource_name = "Idle"
+length = 0.75
+loop_mode = 2
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(64.944, 30.23, 25.161, 27.053), Rect2(32.944, 30.23, 25.161, 27.053), Rect2(0.944, 30.23, 25.161, 27.053)]
+}
+
+[sub_resource type="Animation" id="Animation_cvnsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(96.944, 30.23, 25.161, 27.053)]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "Walk_Up"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0.944, 159.23, 25.161, 27.053), Rect2(32.944, 159.23, 25.161, 27.053), Rect2(64.944, 159.23, 25.161, 27.053), Rect2(96.944, 159.23, 25.161, 27.053)]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "Walk_X"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0.944, 94.23, 25.161, 27.053), Rect2(32.944, 94.23, 25.161, 27.053), Rect2(64.944, 94.23, 25.161, 27.053), Rect2(96.944, 94.23, 25.161, 27.053)]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "Walk_down"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0.944, 126.23, 25.161, 27.053), Rect2(32.944, 126.23, 25.161, 27.053), Rect2(64.944, 126.23, 25.161, 27.053), Rect2(96.944, 126.23, 25.161, 27.053)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t5aa"]
+_data = {
+&"Idle": SubResource("Animation_v0iea"),
+&"RESET": SubResource("Animation_cvnsp"),
+&"Walk_Up": SubResource("Animation_vgqql"),
+&"Walk_X": SubResource("Animation_6t5aa"),
+&"Walk_down": SubResource("Animation_fkybt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5y2d"]
+size = Vector2(25.875, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q8ld"]
+size = Vector2(97, 91)
+
+[node name="Narrator" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_1e8i3")
+animation_player = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://cuq7v05bw5u5a"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_1e8i3")
+flip_h = true
+region_rect = Rect2(96.944, 30.23, 25.161, 27.053)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6t5aa")
+}
+autoplay = "Idle"
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_y5y2d")
+
+[node name="speakboop" type="Area2D" parent="."]
+position = Vector2(3.32, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="speakboop"]
+position = Vector2(-2.5, 4.5)
+shape = SubResource("RectangleShape2D_7q8ld")
+
+[node name="speakboop2" type="Area2D" parent="."]
+position = Vector2(3.32, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="speakboop2"]
+position = Vector2(-2.5, 4.5)
+shape = SubResource("RectangleShape2D_7q8ld")

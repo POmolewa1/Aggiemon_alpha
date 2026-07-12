@@ -1,0 +1,168 @@
+[gd_scene load_steps=13 format=3 uid="uid://dmp74kcfc4jo0"]
+
+[ext_resource type="Script" uid="uid://c1xoqyry06cjc" path="res://Scripts/greaser_turkey.gd" id="1_0ao2d"]
+[ext_resource type="Texture2D" uid="uid://hsbvype1nbt" path="res://Assets/sprites/greasers_spritesheet.png" id="2_0ao2d"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="3_lun5j"]
+
+[sub_resource type="Animation" id="Animation_v0iea"]
+resource_name = "Idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(25.548, 443.359, 370.335, 436.242), Rect2(473.548, 443.359, 370.335, 436.242), Rect2(915.548, 448.359, 370.335, 436.242), Rect2(1360.548, 450.359, 370.335, 436.242)]
+}
+
+[sub_resource type="Animation" id="Animation_cvnsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(96.944, 30.23, 25.161, 27.053)]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "Walk_Up"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0.944, 159.23, 25.161, 27.053), Rect2(32.944, 159.23, 25.161, 27.053), Rect2(64.944, 159.23, 25.161, 27.053), Rect2(96.944, 159.23, 25.161, 27.053)]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "Walk_X"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0.944, 94.23, 25.161, 27.053), Rect2(32.944, 94.23, 25.161, 27.053), Rect2(64.944, 94.23, 25.161, 27.053), Rect2(96.944, 94.23, 25.161, 27.053)]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "Walk_down"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0.944, 126.23, 25.161, 27.053), Rect2(32.944, 126.23, 25.161, 27.053), Rect2(64.944, 126.23, 25.161, 27.053), Rect2(96.944, 126.23, 25.161, 27.053)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t5aa"]
+_data = {
+&"Idle": SubResource("Animation_v0iea"),
+&"RESET": SubResource("Animation_cvnsp"),
+&"Walk_Up": SubResource("Animation_vgqql"),
+&"Walk_X": SubResource("Animation_6t5aa"),
+&"Walk_down": SubResource("Animation_fkybt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(32, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(83, 75)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afpow"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="GreaserTurkey" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation_player")]
+z_index = 1
+script = ExtResource("1_0ao2d")
+health_bar = NodePath("HealthBar")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.359)
+texture = ExtResource("2_0ao2d")
+region_enabled = true
+region_rect = Rect2(96.944, 30.23, 25.161, 27.053)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6t5aa")
+}
+autoplay = "Idle"
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 29)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_vgqql")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0.5, 25.5)
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("enemy", "label")]
+visible = false
+offset_left = -41.0
+offset_top = -107.0
+offset_right = 39.0
+offset_bottom = -88.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_afpow")
+value = 100.0
+show_percentage = false
+script = ExtResource("3_lun5j")
+enemy = NodePath("..")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 81.0
+offset_bottom = 21.0
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 82.0
+theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_font_sizes/font_size = 11
+text = "Greaser Turkey"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,7 @@
+[gd_scene load_steps=0 format=3 uid="uid://btaaupu5ipql8"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

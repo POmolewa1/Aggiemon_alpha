@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d1u12qgr5l4xt"]
+
+[ext_resource type="Texture2D" uid="uid://dd7300lyw5rap" path="res://UI/Custom Border and Panels Menu All Part/Border All 1.png" id="1_0cexw"]
+
+[resource]
+atlas = ExtResource("1_0cexw")
+region = Rect2(0, 0, 64, 64)

@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://d34x2wbxlugvc"]
+
+[ext_resource type="Script" uid="uid://ccy7yu8kxv6e3" path="res://Scripts/gameover_menu.gd" id="1_jmoai"]
+[ext_resource type="FontFile" uid="uid://ci7nxp58uafet" path="res://UI/PressStart2P.ttf" id="3_4j3xw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw18a"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arl3u"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.15294118, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="GameoverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jmoai")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qw18a")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.25
+offset_top = -193.0
+offset_right = 167.25
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_4j3xw")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_arl3u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_arl3u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_arl3u")
+text = "RETRY?"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_4j3xw")
+theme_override_font_sizes/font_size = 102
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_retry_pressed"]

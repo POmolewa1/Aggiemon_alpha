@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://0igy07ptuan2"]
+
+[ext_resource type="FontFile" uid="uid://ci7nxp58uafet" path="res://UI/PressStart2P.ttf" id="1_5yir2"]
+[ext_resource type="Script" path="res://Scripts/skill_button.gd" id="1_rrd8j"]
+[ext_resource type="Texture2D" uid="uid://cly38aksr7gs1" path="res://UI/pixil-frame-0 (12).png" id="2_irk8a"]
+[ext_resource type="Texture2D" uid="uid://d1u12qgr5l4xt" path="res://UI/Custom Border and Panels Menu All Part/base_atlas_texture.tres" id="4_ffe78"]
+
+[node name="NormalType" type="Button"]
+custom_minimum_size = Vector2(57, 57)
+anchors_preset = -1
+anchor_left = -0.08810764
+anchor_right = 1.0364584
+anchor_bottom = 1.0
+offset_left = 303.5
+offset_top = 162.0
+offset_right = -660.5
+offset_bottom = -414.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_5yir2")
+theme_override_font_sizes/font_size = 22
+text = "  Skill Name"
+icon = ExtResource("2_irk8a")
+flat = true
+script = ExtResource("1_rrd8j")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_right = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ffe78")
+expand_mode = 1

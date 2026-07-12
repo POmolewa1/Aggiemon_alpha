@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://s1k78iveay4v"]
+
+[ext_resource type="Theme" uid="uid://djkietrpesysc" path="res://UI/overworld_menu_theme.tres" id="1_rqwkp"]
+[ext_resource type="Script" uid="uid://b0wrffkrqetet" path="res://UI/shop_menu.gd" id="1_tyiqa"]
+
+[node name="ShopMenu" type="Control" node_paths=PackedStringArray("shop_list", "info_label", "skill_point_label")]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_rqwkp")
+script = ExtResource("1_tyiqa")
+shop_list = NodePath("PanelContainer/HBoxContainer/VBoxContainer/ShopList")
+info_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer2/InfoLabel")
+skill_point_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer/Skill Point Amount")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 171.0
+offset_top = 87.0
+offset_right = 970.0
+offset_bottom = 506.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="Control" parent="PanelContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 5.18
+
+[node name="VBoxContainer" type="Control" parent="PanelContainer/HBoxContainer"]
+anchors_preset = 0
+offset_right = 674.0
+offset_bottom = 417.0
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 48.0
+offset_right = 761.0
+offset_bottom = 85.0
+text = "Skills Shop
+"
+
+[node name="Skill Point Amount" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 85.0
+offset_right = 763.0
+offset_bottom = 122.0
+text = "Skills Shop
+"
+
+[node name="ShopList" type="ItemList" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 122.0
+offset_right = 356.0
+offset_bottom = 362.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="Control" parent="PanelContainer/HBoxContainer"]
+anchors_preset = 0
+offset_left = 371.0
+offset_top = 50.0
+offset_right = 490.0
+offset_bottom = 467.0
+
+[node name="InfoLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 17.0
+text = "Details"
+
+[connection signal="item_selected" from="PanelContainer/HBoxContainer/VBoxContainer/ShopList" to="." method="_on_shop_list_item_selected"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://xkwf0eva8xdj"]
+
+[ext_resource type="Texture2D" uid="uid://d224fwvwfrqep" path="res://Assets/sprites/attack_effect.png" id="1_5deos"]
+[ext_resource type="Script" uid="uid://dqwhxw2lnlgx4" path="res://Scripts/attack_effect.gd" id="2_jhuot"]
+
+[sub_resource type="Animation" id="Animation_c6adt"]
+resource_name = "effect"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(9, 36.204, 160.06, 263.628), Rect2(138, 38.204, 160.06, 263.628), Rect2(329, 38.204, 160.06, 263.628), Rect2(529, 44.204, 160.06, 263.628), Rect2(715, 38.204, 160.06, 263.628), Rect2(881, 57.204, 160.06, 263.628), Rect2(-46, 310.204, 160.06, 263.628)]
+}
+
+[sub_resource type="Animation" id="Animation_gu6lg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(11, 38.204, 160.06, 263.628)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64wly"]
+_data = {
+&"RESET": SubResource("Animation_gu6lg"),
+&"effect": SubResource("Animation_c6adt")
+}
+
+[node name="AttackEffect" type="Sprite2D"]
+scale = Vector2(0.7, 0.552)
+texture = ExtResource("1_5deos")
+region_enabled = true
+region_rect = Rect2(11, 38.204, 160.06, 263.628)
+script = ExtResource("2_jhuot")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_64wly")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

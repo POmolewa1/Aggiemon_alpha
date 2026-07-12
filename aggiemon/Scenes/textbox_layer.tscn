@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://du5few3itt3ab"]
+
+[ext_resource type="Script" uid="uid://vpwqaqmsvip5" path="res://Scripts/textbox_layer.gd" id="1_ijutl"]
+[ext_resource type="PackedScene" uid="uid://cgs1qq8jf6pqt" path="res://Scenes/textbox.tscn" id="2_wgu7w"]
+[ext_resource type="AudioStream" uid="uid://d34wdog3bd16t" path="res://Audio/crew1.mp3" id="3_wgu7w"]
+
+[node name="Textbox" type="CanvasLayer"]
+script = ExtResource("1_ijutl")
+
+[node name="Textbox" parent="." instance=ExtResource("2_wgu7w")]
+
+[node name="TextSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wgu7w")
+volume_db = -8.0
+bus = &"SFX"

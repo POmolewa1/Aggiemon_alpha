@@ -1,0 +1,193 @@
+[gd_scene load_steps=21 format=3 uid="uid://730rqg77frhh"]
+
+[ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
+[ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="3_m4a4n"]
+[ext_resource type="Texture2D" uid="uid://cj2tgrjcyhq10" path="res://Assets/tiles/aggiemonmap_incomplete.png" id="3_n21db"]
+[ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
+[ext_resource type="Script" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
+[ext_resource type="Script" uid="uid://cwmbyf8vm1j5r" path="res://Scripts/enemy_spawner.gd" id="7_fijs6"]
+[ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://UI/overworld_menu.tscn" id="7_n21db"]
+[ext_resource type="PackedScene" uid="uid://bgxju5kl6yvlc" path="res://Scenes/turkey.tscn" id="8_3v400"]
+[ext_resource type="PackedScene" uid="uid://ctb4vis60pgh7" path="res://UI/stats_menu.tscn" id="9_m3130"]
+[ext_resource type="PackedScene" uid="uid://d2mwx03oofd4" path="res://UI/skills_menu.tscn" id="10_2mu0y"]
+[ext_resource type="PackedScene" uid="uid://bpcgfvb4ftycd" path="res://UI/map_menu.tscn" id="11_qyksh"]
+[ext_resource type="Texture2D" uid="uid://duilp6drdnwwc" path="res://Assets/tiles/aggiemonmap_incomplete - Copy.png" id="12_3v400"]
+[ext_resource type="PackedScene" path="res://UI/options_menu.tscn" id="12_ie368"]
+[ext_resource type="AudioStream" uid="uid://clcn0qdjuktys" path="res://Audio/Jorge Hernandez - Chopsticks NO COPYRIGHT 8-bit Music.mp3" id="13_3v400"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v400"]
+size = Vector2(32.857117, 37.87004)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvhuy"]
+size = Vector2(85.9999, 30.999958)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v0cu"]
+size = Vector2(65.99996, 94.99994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mu0y"]
+size = Vector2(355, 559)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyksh"]
+size = Vector2(342, 225)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fijs6"]
+size = Vector2(2153, 56.5)
+
+[node name="GameManager" type="Node2D" node_paths=PackedStringArray("over_world_audio")]
+y_sort_enabled = true
+script = ExtResource("1_2jeib")
+over_world_audio = NodePath("OverworldAudio")
+
+[node name="OverWorld" type="Node2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="WorldPNG" type="Sprite2D" parent="OverWorld"]
+z_index = -1
+position = Vector2(385.99997, 295.00003)
+scale = Vector2(2.0000002, 2.0920002)
+texture = ExtResource("3_n21db")
+
+[node name="Camera2D" type="Camera2D" parent="OverWorld"]
+position = Vector2(166.25494, 153.60397)
+scale = Vector2(0.7, 0.7)
+position_smoothing_enabled = true
+script = ExtResource("4_xqlrx")
+upper_bound = 330
+lower_bound = 900
+left_bound = 25
+right_bound = 800
+
+[node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
+position = Vector2(232.49121, 127.5969)
+
+[node name="SpawnerContainer" type="Node2D" parent="OverWorld"]
+
+[node name="EnemySpawner" type="Node2D" parent="OverWorld/SpawnerContainer"]
+position = Vector2(1187.7101, 484.91995)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("3_m4a4n")
+
+[node name="EnemySpawner2" type="Node2D" parent="OverWorld/SpawnerContainer"]
+position = Vector2(930.44977, 493.92767)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("3_m4a4n")
+
+[node name="EnemySpawner3" type="Node2D" parent="OverWorld/SpawnerContainer"]
+position = Vector2(1081.6248, 744.9018)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("3_m4a4n")
+
+[node name="EnemySpawner4" type="Node2D" parent="OverWorld/SpawnerContainer"]
+position = Vector2(-419.489, -423.09747)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("8_3v400")
+
+[node name="EnemySpawner5" type="Node2D" parent="OverWorld/SpawnerContainer"]
+position = Vector2(-89.37622, -420.9539)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("8_3v400")
+
+[node name="EnemySpawner6" type="Node2D" parent="OverWorld/SpawnerContainer"]
+position = Vector2(-288.72998, -198.02063)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("8_3v400")
+
+[node name="Overworld Menus" type="CanvasLayer" parent="OverWorld"]
+
+[node name="Overworld Menu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("stats_menu", "skills_menu", "map_menu", "options_menu") instance=ExtResource("7_n21db")]
+visible = false
+theme = null
+stats_menu = NodePath("../StatsMenu")
+skills_menu = NodePath("../SkillsMenu")
+map_menu = NodePath("../MapMenu")
+options_menu = NodePath("../OptionsMenu")
+
+[node name="StatsMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("character") instance=ExtResource("9_m3130")]
+visible = false
+character = NodePath("../../Player")
+
+[node name="SkillsMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("character", "overworld_menu") instance=ExtResource("10_2mu0y")]
+visible = false
+character = NodePath("../../Player")
+overworld_menu = NodePath("../Overworld Menu")
+
+[node name="MapMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("overworld_menu") instance=ExtResource("11_qyksh")]
+visible = false
+overworld_menu = NodePath("../Overworld Menu")
+map_texture = ExtResource("3_n21db")
+
+[node name="OptionsMenu" parent="OverWorld/Overworld Menus" instance=ExtResource("12_ie368")]
+
+[node name="TreeLeaves2" type="Sprite2D" parent="OverWorld"]
+position = Vector2(204.99998, 301)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("12_3v400")
+
+[node name="TreeTrunk2" type="StaticBody2D" parent="OverWorld"]
+position = Vector2(140.37802, 453.32727)
+scale = Vector2(4.4099994, 4.4099994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverWorld/TreeTrunk2"]
+position = Vector2(17.601362, -2.5685396)
+scale = Vector2(0.4761907, 0.4761907)
+shape = SubResource("RectangleShape2D_3v400")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OverWorld/TreeTrunk2"]
+position = Vector2(17.147835, 1.1729507)
+scale = Vector2(0.2267576, 0.2267576)
+shape = SubResource("RectangleShape2D_gvhuy")
+
+[node name="TreeTrunk" type="StaticBody2D" parent="OverWorld"]
+position = Vector2(513.52386, 340.00003)
+scale = Vector2(2.1, 2.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverWorld/TreeTrunk"]
+position = Vector2(21.179123, -16.904785)
+scale = Vector2(0.47619087, 0.47619087)
+shape = SubResource("RectangleShape2D_3v0cu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OverWorld/TreeTrunk"]
+position = Vector2(41.179123, -8.095261)
+scale = Vector2(0.22675774, 0.22675774)
+shape = SubResource("RectangleShape2D_3v0cu")
+
+[node name="TreeLeaves" type="Sprite2D" parent="OverWorld"]
+position = Vector2(548, 161)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("12_3v400")
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="Unity Center Boundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(254.5, -204.5)
+shape = SubResource("RectangleShape2D_2mu0y")
+
+[node name="Shop Boundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1160, -544.5)
+shape = SubResource("RectangleShape2D_qyksh")
+
+[node name="North Boundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(373.5, -676.25)
+shape = SubResource("RectangleShape2D_fijs6")
+
+[node name="South Boundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(374, 1268)
+shape = SubResource("RectangleShape2D_fijs6")
+
+[node name="West Boundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-619, 221)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_fijs6")
+
+[node name="East Boundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1383, 221)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_fijs6")
+
+[node name="OverworldAudio" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("13_3v400")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
