@@ -328,13 +328,14 @@ However, other than these issues, the game functions as intended and didn't have
 
 
 scripts:
-- [BattleSetUp](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/battle_set_up.gd#L1)
-- [BattleManager](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/battle_manager.gd#L1-L2) (Aziz contributed to the damage calculation and beta version of the turn order)
-- [attack_effect](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/attack_effect.gd#L1)
-- [Character](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/character.gd#L1)
-- [enemy_creator](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/enemy_creator.gd#L1)
-- [enemy_spawner](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/enemy_spawner.gd#L1)
-- [skill_button](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/skill_button.gd#L1)
+- [BattleSetUp](https://github.com/POmolewa1/Aggiemon_alpha/blob/495504cad7448962063d35b5bcbd3f3298b545ee/aggiemon/Scripts/battle_set_up.gd#L1)
+- [BattleManager](https://github.com/POmolewa1/Aggiemon_alpha/blob/495504cad7448962063d35b5bcbd3f3298b545ee/aggiemon/Scripts/battle_manager.gd#L1) (Aziz contributed to the damage calculation and beta version of the turn order)
+- [attack_effect](https://github.com/POmolewa1/Aggiemon_alpha/blob/495504cad7448962063d35b5bcbd3f3298b545ee/aggiemon/Scripts/attack_effect.gd#L1)
+- [Character](https://github.com/POmolewa1/Aggiemon_alpha/blob/495504cad7448962063d35b5bcbd3f3298b545ee/aggiemon/Scripts/character.gd#L1)
+- [enemy_creator](https://github.com/POmolewa1/Aggiemon_alpha/blob/495504cad7448962063d35b5bcbd3f3298b545ee/aggiemon/Scripts/enemy_creator.gd#L1)
+- [enemy_spawner](https://github.com/POmolewa1/Aggiemon_alpha/blob/495504cad7448962063d35b5bcbd3f3298b545ee/aggiemon/Scripts/enemy_spawner.gd#L1)
+- [Skill Class](https://github.com/POmolewa1/Aggiemon_alpha/blob/495504cad7448962063d35b5bcbd3f3298b545ee/aggiemon/Scripts/skills/skill.gd#L1)
+- [skill_button](https://github.com/POmolewa1/Aggiemon_alpha/blob/495504cad7448962063d35b5bcbd3f3298b545ee/aggiemon/Scripts/skill_button.gd#L1)
 - Contributions were also made to the player, turkey, enemy, and greaserturkey scripts
 - Enemy Skills folder (turkey slap and greaser punch)
 
